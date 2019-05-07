@@ -1,0 +1,91 @@
+{
+    "type": "object",
+    "properties": {
+        "AwsAccountId": {
+            "required": true,
+            "type": "string"
+        },
+        "Namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "Email": {
+                    "description": "The email address of the user that you want to register.",
+                    "type": "string"
+                },
+                "IamArn": {
+                    "description": "The ARN of the IAM user or role that you are registering with Amazon QuickSight. ",
+                    "type": "string"
+                },
+                "IdentityType": {
+                    "description": "<p>Amazon QuickSight supports several ways of managing the identity of users. This parameter accepts two values:</p> <ul> <li> <p> <code>IAM</code>: A user whose identity maps to an existing IAM user or role. </p> </li> <li> <p> <code>QUICKSIGHT</code>: A user whose identity is owned and managed internally by Amazon QuickSight. </p> </li> </ul>",
+                    "enum": [
+                        "IAM",
+                        "QUICKSIGHT"
+                    ],
+                    "type": "string"
+                },
+                "SessionName": {
+                    "description": "The name of the session with the assumed IAM role. By using this parameter, you can register multiple users with the same IAM role, provided that each has a different session name. For more information on assuming IAM roles, see <a href=\"https://docs.aws.amazon.com/cli/latest/reference/sts/assume-role.html\"> <code>assume-role</code> </a> in the <i>AWS CLI Reference.</i> ",
+                    "maxLength": 64,
+                    "minLength": 2,
+                    "pattern": "[\\w+=.@-]*",
+                    "type": "string"
+                },
+                "UserName": {
+                    "description": "The Amazon QuickSight user name that you want to create for the user you are registering.",
+                    "minLength": 1,
+                    "pattern": "[\\u0020-\\u00FF]+",
+                    "type": "string"
+                },
+                "UserRole": {
+                    "description": "<p>The Amazon QuickSight role of the user. The user role can be one of the following:</p> <ul> <li> <p> <code>READER</code>: A user who has read-only access to dashboards.</p> </li> <li> <p> <code>AUTHOR</code>: A user who can create data sources, data sets, analyses, and dashboards.</p> </li> <li> <p> <code>ADMIN</code>: A user who is an author, who can also manage Amazon QuickSight settings.</p> </li> </ul>",
+                    "enum": [
+                        "ADMIN",
+                        "AUTHOR",
+                        "READER",
+                        "RESTRICTED_AUTHOR",
+                        "RESTRICTED_READER"
+                    ],
+                    "type": "string"
+                }
+            },
+            "required": [
+                "IdentityType",
+                "Email",
+                "UserRole"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

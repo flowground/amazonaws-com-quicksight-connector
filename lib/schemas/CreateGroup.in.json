@@ -1,0 +1,62 @@
+{
+    "type": "object",
+    "properties": {
+        "AwsAccountId": {
+            "required": true,
+            "type": "string"
+        },
+        "Namespace": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "description": "The request object for this operation. ",
+            "properties": {
+                "Description": {
+                    "description": "A description for the group that you want to create.",
+                    "maxLength": 512,
+                    "minLength": 1,
+                    "type": "string"
+                },
+                "GroupName": {
+                    "description": "A name for the group that you want to create.",
+                    "minLength": 1,
+                    "pattern": "[\\u0020-\\u00FF]+",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "GroupName"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}
